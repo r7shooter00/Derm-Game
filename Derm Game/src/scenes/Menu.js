@@ -59,6 +59,15 @@ class Menu extends Phaser.Scene
             //create a sprite where the player clicked
             this.startPoint = this.markers.create(this.input.mousePointer.worldX, this.input.mousePointer.worldY, 'marker');
 
+            if(this.input.mousePointer.worldX < 640)
+            {
+                this.endPoint = this.markers.create(this.startPoint.x + 640, 320, 'marker');
+            }
+            else
+            {
+                this.endPoint = this.markers.create(this.startPoint.x - 640, 240, 'marker');
+            }
+
             //store the original y value of the created marker
             this.originalMarkers.push(this.input.mousePointer.worldY);
 
